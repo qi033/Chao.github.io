@@ -8,7 +8,12 @@
       >
         <li>
           <div class="dataBox_zuo">
-            <input type="checkbox" @click="toggleStrike(item)" />
+            <input
+              type="checkbox"
+              @click="toggleStrike(item)"
+              v-model="item.isChecked"
+              @change="playSound"
+            />
             <a :class="{ 'strike-through': item.shouldStrike }" href="">{{
               item.name
             }}</a>
@@ -55,7 +60,8 @@ export default {
   data() {
     return {
       showBorder: false,
-
+      isChecked: false,
+      audio: null,
       pickerOptions: {
         disabledDate(time) {
           return time.getTime() > Date.now();
@@ -109,8 +115,16 @@ export default {
   },
   mounted() {
     Bus.$emit("setBus", this.datyoua);
+    this.audio = new Audio(require("../../assets/yinxiao.wav"));
   },
   methods: {
+    playSound() {
+      if (this.datyoua.some((item) => item.isChecked)) {
+        // 至少有一个项目被勾选时播放声音
+        this.audio.play();
+      }
+    },
+
     //给字体加删除线
     toggleStrike(item) {
       console.log(item);
