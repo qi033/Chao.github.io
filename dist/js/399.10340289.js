@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunklistproject"]=self["webpackChunklistproject"]||[]).push([[399],{5399:function(t,n,s){s.r(n),s.d(n,{default:function(){return a}});var u=function(){var t=this;t._self._c;return t._m(0)},e=[function(){var t=this,n=t._self._c;return n("div",{staticClass:"about"},[n("h1",[t._v("This is an about page")])])}],l=s(1001),r={},i=(0,l.Z)(r,u,e,!1,null,null,null),a=i.exports}}]);
+//# sourceMappingURL=399.10340289.js.map
